@@ -1,38 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Bangers&display=swap");
 .App {
   text-align: center;
+  width: 100vw;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.babyCardContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 5px;
+  width: 80vw;
+  margin: auto;
+}
+.babyCard {
+  border-radius: 2rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: all 0.5s ease;
+}
+.babyCard:hover {
+  box-shadow: #5a171744 0px 2px 29px 0px;
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+h1 {
+  font-family: "Bangers", cursive;
+  padding: 1rem;
+  letter-spacing: 2px;
+  color: #fc8e8e;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* male babies */
+.m {
+  background-color: #017991;
+  color: white;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+/* female babies */
+.f {
+  background-color: #ec188c;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* responsive */
+@media only screen and (min-width: 700px) {
+  .babyCardContainer {
+    grid-template-columns: repeat(6, 1fr);
   }
-  to {
-    transform: rotate(360deg);
+}
+@media only screen and (min-width: 750px) {
+  .babyCardContainer {
+    grid-template-columns: repeat(7, 1fr);
+  }
+}
+@media only screen and (min-width: 850px) {
+  .babyCardContainer {
+    grid-template-columns: repeat(8, 1fr);
   }
 }
