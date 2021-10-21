@@ -1,13 +1,14 @@
-export default function BabyCard({
+export default function FavoriteBabyCard({
   name,
   id,
   sex,
   setFavoriteBabiesIds,
 }) {
   function handleClick() {
-    setFavoriteBabiesIds((prev) => [
-      ...new Set(prev.concat(id)),
-    ]);
+    //TODO DELETE ID FROM LIST
+    setFavoriteBabiesIds((prev) =>
+      prev.filter((element) => element !== id)
+    );
   }
 
   return (
