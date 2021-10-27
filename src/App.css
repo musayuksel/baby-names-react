@@ -3,6 +3,16 @@
   text-align: center;
   width: 100vw;
 }
+.searchSection {
+  display: flex;
+  justify-content: center;
+  margin: 1rem auto;
+}
+.searchSection img {
+  cursor: pointer;
+  height: 50px;
+  margin: 0 5px;
+}
 #nameSearch {
   border: none;
   box-shadow: #5a171738 0px 2px 29px 0px;
@@ -15,6 +25,7 @@
 .babyCardContainer {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  align-items: center;
   grid-gap: 5px;
   width: 80vw;
   margin: auto;

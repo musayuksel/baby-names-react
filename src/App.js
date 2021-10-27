@@ -6,12 +6,17 @@ import FavoriteBabyCard from "./components/FavoriteBabyCard";
 
 function App() {
   const [searchedBaby, setSearcBaby] = useState(babyNames);
-  function searchFunc(e) {
+  function filterSex(sex = "") {
+    setSearcBaby(() =>
+      babyNames.filter((baby) => baby.sex.includes(sex))
+    );
+  }
+  function searchFunc(event = "") {
     setSearcBaby(() => {
       return babyNames.filter((baby) =>
         baby["name"]
           .toLowerCase()
-          .includes(e.target.value.toLowerCase())
+          .includes(event.target.value.toLowerCase())
       );
     });
   }
@@ -48,14 +53,32 @@ function App() {
 
   return (
     <div className="App">
-      <input
-        type="text"
-        name="nameSearch"
-        id="nameSearch"
-        placeholder="Search baby name"
-        onChange={searchFunc}
-      />
+      <section className="searchSection">
+        <input
+          type="text"
+          name="nameSearch"
+          id="nameSearch"
+          placeholder="Search baby name"
+          onChange={searchFunc}
+        />
+        <img
+          src="https://cdn.iconscout.com/icon/premium/png-256-thumb/baby-746-763895.png"
+          alt="baby icon"
+          onClick={() => filterSex()}
+        />
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/405/405129.png"
+          alt="girl baby icon"
+          onClick={() => filterSex("f")}
+        />
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/191/191526.png"
+          alt="boy baby icon"
+          onClick={() => filterSex("m")}
+        />
+      </section>
       <section className="babyCardContainer">
+        <h4 style={{ opacity: 0.5 }}>Favourites:</h4>
         {babiesForFavoriteSection}
       </section>
       <h1>Choose a name for you future...</h1>
